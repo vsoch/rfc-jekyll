@@ -1,0 +1,56 @@
+# This file holds shared metadata for a directory of specs
+image-spec:
+  name: Image Spec
+  slug: image-spec
+  group: Open Containers Initiative (OCI)
+  raw_url: https://raw.githubusercontent.com/opencontainers/image-spec/master
+  github_repo: opencontainers/image-spec
+  github_url: https://github.com/opencontainers/image-spec/blob/master
+
+  # Courtesy list of pages relative to site root to link
+  pages:
+   - image-spec/
+   - image-spec/annotations/
+   - image-spec/config/
+   - image-spec/considerations/
+   - image-spec/conversions/
+   - image-spec/descriptor/
+   - image-spec/image-index/
+   - image-spec/image-layout/
+   - image-spec/layer/
+   - image-spec/manifest/
+   - image-spec/media-types/
+ 
+
+distribution-spec:
+  name: Distribution Spec
+  slug: distribution-spec
+  group: Open Containers Initiative (OCI)
+  raw_url: https://raw.githubusercontent.com/opencontainers/distribution-spec/master
+  github_url: https://github.com/opencontainers/distribution-spec/blob/master/spec.md
+  github_repo: opencontainers/distribution-spec
+  pages:
+   - distribution-spec/
+   - distribution-spec/conformance/README/
+   - distribution-spec/content-negotiation/
+   - distribution-spec/detail/
+   
+runtime-spec:
+  name: Runtime Spec
+  slug: runtime-spec
+  group: Open Containers Initiative (OCI)
+  raw_url: https://raw.githubusercontent.com/opencontainers/runtime-spec/master
+  github_url: https://github.com/opencontainers/runtime-spec/blob/master/spec.md
+  github_repo: opencontainers/runtime-spec
+  pages:
+   - runtime-spec/
+   - runtime-spec/bundle/
+   - runtime-spec/config-linux/
+   - runtime-spec/config/
+   - runtime-spec/config-solaris/
+   - runtime-spec/config-vm/
+   - runtime-spec/config-windows/
+   - runtime-spec/glossary/
+   - runtime-spec/principles/
+   - runtime-spec/runtime-linux/
+   - runtime-spec/runtime/
