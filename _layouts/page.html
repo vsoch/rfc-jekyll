@@ -90,7 +90,7 @@ $(document).ready(function(){
         for (var i = 0; i < images.length; i++) {
             image = images[i];
             if (!image.startsWith("http")) {
-                html = html.replace(image, "https://raw.githubusercontent.com/{{ site.data.specs[page.key].github_repo }}/" + image);
+                html = html.replace(image, "https://raw.githubusercontent.com/{{ site.data.specs[page.key].github_repo }}/{{ site.data.specs[page.key].github_branch}}/" + image);
             }            
         }
                 
