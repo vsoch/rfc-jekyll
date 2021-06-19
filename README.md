@@ -49,11 +49,9 @@ for `image-spec`:
 # This file holds shared metadata for a directory of specs
 image-spec:
   name: Image Spec
-  slug: image-spec
   group: Open Containers Initiative (OCI)
-  raw_url: https://raw.githubusercontent.com/opencontainers/image-spec/master
   github_repo: opencontainers/image-spec
-  github_url: https://github.com/opencontainers/image-spec/blob/master
+  github_branch: master
 
   # Courtesy list of pages relative to site root to link
   pages:
