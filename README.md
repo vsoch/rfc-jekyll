@@ -2,7 +2,7 @@
 
 **⭐️ Welcome to RFC Jekyll! ⭐️**
 
-![assets/img/runtime-spec.md](assets/img/runtime-spec.md)
+![assets/img/runtime-spec.png](assets/img/runtime-spec.png)
 
 This is a template to help you render an RFC document (or other standards document)
 on GitHub pages assembled from markdown files in multiple repositories. As a stong
