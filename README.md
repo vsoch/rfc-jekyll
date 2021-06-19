@@ -13,6 +13,8 @@ specs. Notably:
 2. Content is retrieved dynamically directly from the specs and you don't need to rebuild.
 3. Adding new pages comes down to adding metadata for the pages you want.
 
+![View the specs!](https://vsoch.github.io/rfc-jekyll/)
+
 ## Usage
 
 ### 1. Get the code
