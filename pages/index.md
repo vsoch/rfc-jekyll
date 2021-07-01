@@ -91,7 +91,6 @@ body {
   background-color: #fff;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   transition: 0.15s ease;
-  cursor: pointer;
   position: relative;
 }
 .checkbox-tile:before {
@@ -134,13 +133,15 @@ body {
 <fieldset class="checkbox-group" style="border:none">
   <legend class="checkbox-group-legend">OpenContainers Specifications</legend>
   {% for spec in site.data.specs %}
-  <div class="checkbox clickme" data-id="{{ spec[0] }}" id="spec-{{ spec[0] }}">
+  <div class="checkbox" id="spec-{{ spec[0] }}">
     <label class="checkbox-wrapper">
       <input type="checkbox" class="checkbox-input" />
       <span class="checkbox-tile">
         <span class="checkbox-icon">
         </span>
         <span class="checkbox-label">{{ spec[1].name }}</span>
+        {% for version in spec[1].versions %}
+         <a class="clickme" href="#" data-id="{{ spec[0] }}" version-id="{{ version }}">{{ version }}</a>{% endfor %}
       </span>
     </label>
   </div>
@@ -154,6 +155,7 @@ body {
 
 <script>
 $(".clickme").click(function(){
-    document.location = "{{ site.baseurl }}/" + $(this).attr("data-id");
+    var url = $(this).attr("data-id") + "?v=" + $(this).attr('version-id'); 
+    document.location = "{{ site.baseurl }}/" + url;
 })
 </script>

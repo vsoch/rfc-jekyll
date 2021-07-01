@@ -51,7 +51,9 @@ image-spec:
   name: Image Spec
   group: Open Containers Initiative (OCI)
   github_repo: opencontainers/image-spec
-  github_branch: master
+  default_version: v1.0.1
+  versions:
+    - v1.0.1
 
   # Courtesy list of pages relative to site root to link
   pages:
@@ -71,7 +73,9 @@ image-spec:
 The various urls are used to define relative paths in the repository. The list
 of pages (optional) will render a left side navigation to give the reader
 context of all the documents included for a spec. Importantly, the key `image-spec`
-at the top is used to lookup this metadata.
+at the top is used to lookup this metadata. Finally, the list of versions should
+correspond to releases. If a release isn't given in the browser as a variable,
+then we fall back to the `default_version` variable.
 
 ##### 2. Document Index Page
 

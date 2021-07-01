@@ -3,7 +3,9 @@ image-spec:
   name: Image Spec
   group: Open Containers Initiative (OCI)
   github_repo: opencontainers/image-spec
-  github_branch: master
+  default_version: v1.0.1
+  versions:
+    - v1.0.1
 
   # Courtesy list of pages relative to site root to link
   pages:
@@ -24,7 +26,10 @@ distribution-spec:
   name: Distribution Spec
   group: Open Containers Initiative (OCI)
   github_repo: opencontainers/distribution-spec
-  github_branch: master
+  default_version: v1.0.0
+  versions:
+    - v1.0.0
+
   pages:
    - distribution-spec/
    - distribution-spec/conformance/README/
@@ -35,7 +40,10 @@ runtime-spec:
   name: Runtime Spec
   group: Open Containers Initiative (OCI)
   github_repo: opencontainers/runtime-spec
-  github_branch: master
+  default_version: v1.0.2
+  versions:
+   - v1.0.2
+
   pages:
    - runtime-spec/
    - runtime-spec/bundle/
