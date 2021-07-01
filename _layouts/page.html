@@ -8,8 +8,7 @@ layout: default
 
 <div id="content" style="display:none"></div>
 
-
-<p style="padding-top:30px">This content is served from <a href="https://github.com/{{ site.data.specs[page.key].github_repo }}/blob/{{ site.data.specs[page.key].github_branch }}/{{ page.spec }}" target="_blank">{{ site.data.specs[page.key].github_repo }}</a> on GitHub. You can
+<p style="padding-top:30px">This content is served from <a id="from_url" href="https://github.com/{{ site.data.specs[page.key].github_repo }}/blob/{{ site.data.specs[page.key].default_version }}/{{ page.spec }}" target="_blank">{{ site.data.specs[page.key].github_repo }}</a> on GitHub. You can
 make contributions or suggestions for changes there.
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -51,7 +50,23 @@ function slugify(text) {
         ;
 }
 
+function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
 $(document).ready(function(){
+
+    // Version (GitHub reference) comes from the url
+    window.version = getParameterByName('v') || "{{ site.data.specs[page.key].default_version }}";
+
+    // Serving content from this url
+    var from_url = "https://github.com/{{ site.data.specs[page.key].github_repo }}/blob/" + window.version + "/{{ page.spec }}"
+    $("#from_url").attr("href", from_url);
 
     // Get GitHub stars and forks for the repo
     var url = "https://api.github.com/search/repositories?q={{ site.data.specs[page.key].github_repo }}";
@@ -67,7 +82,7 @@ $(document).ready(function(){
        $('#forks').text(forks)
     });
 
-    url = "https://raw.githubusercontent.com/{{ site.data.specs[page.key].github_repo }}/{{ site.data.specs[page.key].github_branch }}/{{ page.spec }}"
+    url = "https://raw.githubusercontent.com/{{ site.data.specs[page.key].github_repo }}/" + window.version +  "/{{ page.spec }}"
     $.get(url, function(data) {
         var converter = new showdown.Converter({tables: true}),
                  html = converter.makeHtml(data);
@@ -90,7 +105,7 @@ $(document).ready(function(){
         for (var i = 0; i < images.length; i++) {
             image = images[i];
             if (!image.startsWith("http")) {
-                html = html.replace(image, "https://raw.githubusercontent.com/{{ site.data.specs[page.key].github_repo }}/{{ site.data.specs[page.key].github_branch}}/" + image);
+                html = html.replace(image, "https://raw.githubusercontent.com/{{ site.data.specs[page.key].github_repo }}/" + window.version + "/" + image);
             }            
         }
                 
