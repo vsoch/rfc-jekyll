@@ -95,8 +95,8 @@ $(document).ready(function(){
             
                 // Logging here so we can see the pages that should be added
                 console.log(link);
-                html = html.replace(link, {% if page.parent %}"{{ site.baseurl }}/{{ page.parent }}/" + {% endif %} basename(link).replace(".md") + "/");
-            }            
+                html = html.replace(link, {% if page.parent %}"{{ site.baseurl }}/{{ page.parent }}/" + {% endif %} basename(link).replace(".md") + "/?v=" + window.version);
+            }
         }
 
         // Relative images need to be replaced by a raw GitHub url
@@ -111,6 +111,13 @@ $(document).ready(function(){
                 
         $('#content').html(html)
         $('#content').show();
+
+
+        // Ensure speclinks have versions
+        $(".speclink").each(function(e, i) {
+            $(i).attr('href', $(i).attr('href') + "?v=" + window.version);
+        })
+
 
         // Add ids to all elements without them
         counter = 0;
